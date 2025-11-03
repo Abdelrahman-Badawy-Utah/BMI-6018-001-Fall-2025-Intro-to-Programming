@@ -28,7 +28,7 @@ weather_data_np = weather_data_pd.to_numpy()
 q_1 = len(flights_data[(flights_data['origin'] == 'JFK') & (flights_data['dest'] == 'SLC')])
 print("Q1 - Number of flights from JFK to SLC:", q_1)
 
-
+#_____________________________________________________________
 #Question 2 How many airlines fly to SLC? Should be int
 #q_2 
 # Using .loc to select rows where 'dest' is 'SLC' and then grabbing just the 'carrier' column
@@ -36,7 +36,7 @@ print("Q1 - Number of flights from JFK to SLC:", q_1)
 q_2 = flights_data.loc[flights_data['dest'] == 'SLC', 'carrier'].nunique()
 print("Q2 - Number of airlines flying to SLC:", q_2)
 
-
+#________________________________________________________________
 #Question 3 What is the average arrival delay for flights to RDU? float
 #q_3
 # Filtering for flights where 'dest' is 'RDU', selecting the 'arr_delay' column
@@ -44,7 +44,7 @@ print("Q2 - Number of airlines flying to SLC:", q_2)
 q_3 = flights_data.loc[flights_data['dest'] == 'RDU', 'arr_delay'].mean()
 print("Q3 - Average arrival delay for flights to RDU:", q_3)
 
-
+#______________________________________________________________________________
 #Question 4 What proportion of flights to SEA come from the two NYC airports (LGA and JFK)?  float
 #q_4
 # First, create a new DataFrame containing only flights destined for 'SEA' 
@@ -54,7 +54,7 @@ sea_flights = flights_data[flights_data['dest'] == 'SEA']
 q_4 = len(sea_flights[sea_flights['origin'].isin(['LGA', 'JFK'])]) / len(sea_flights)
 print("Q4 - Proportion of flights to SEA from LGA and JFK:", q_4)
 
-
+#_____________________________________________________________________________
 #Question 5 Which date has the largest average depature delay? Pd slice with date and float
 #please make date a column. Preferred format is 2013/1/1 (y/m/d)
 #q_5 
@@ -68,7 +68,7 @@ avg_dep_delay = flights_data.groupby('date')['dep_delay'].mean()
 q_5 = avg_dep_delay.idxmax(), avg_dep_delay.max()
 print("Q5 - Date with largest avg departure delay:", q_5)
 
-
+#_______________________________________________________________________
 #Question 6 Which date has the largest average arrival delay? pd slice with date and float
 #q_6 
 # reusing the 'date' column from Q5 that is already created
@@ -78,7 +78,7 @@ avg_arr_delay = flights_data.groupby('date')['arr_delay'].mean()
 q_6 = avg_arr_delay.idxmax(), avg_arr_delay.max()
 print("Q6 - Date with largest avg arrival delay:", q_6)
 
-
+#_________________________________________________________________
 #Question 7 Which flight departing LGA or JFK in 2013 flew the fastest? pd slice with tailnumber and speed
 #speed = distance/airtime
 #q_7
@@ -95,7 +95,7 @@ fastest = fastest.loc[fastest['speed'].idxmax()]
 q_7 = fastest[['tailnum', 'speed']]
 print("Q7 - Fastest flight departing LGA or JFK:", q_7)
 
-
+#____________________________________________________________________
 #Question 8 Replace all nans in the weather pd dataframe with 0s. Pd with no nans
 #q_8 
 # .fillna(0) replaces all NaN (Not a Number) values in the entire DataFrame with 0
@@ -103,7 +103,7 @@ q_8 = weather_data_pd.fillna(0)
 print("Q8 - Weather data with NaNs replaced by 0:")
 print(q_8.head())
 
-
+#____________________________________________________________
 #%% Numpy Data Filtering/Sorting Question Answering
 #Use weather_data_np
 #Question 9 How many observations were made in Feburary? Int
@@ -114,7 +114,7 @@ feb_idx = weather_data_pd['month'] == 2
 q_9 = feb_idx.sum()
 print("Q9 - Observations made in February:", q_9)
 
-
+#_________________________________________________________________
 #Question 10 What was the mean for humidity in February? Float
 #q_10
 # Reusing the 'feb_idx' boolean mask to filter the DataFrame
@@ -122,12 +122,13 @@ print("Q9 - Observations made in February:", q_9)
 q_10 = weather_data_pd.loc[feb_idx, 'humid'].mean()
 print("Q10 - Mean humidity in February:", q_10)
 
-
+#_____________________________________________________________________
 #Question 11 What was the std for humidity in February? Float
 #q_11
 # Reuse 'feb_idx' again to filter for February rows
 # Select the 'humid' column and calculate its standard deviation (.std())
 q_11 = weather_data_pd.loc[feb_idx, 'humid'].std()
 print("Q11 - Standard deviation of humidity in February:", q_11)
+
 
 
