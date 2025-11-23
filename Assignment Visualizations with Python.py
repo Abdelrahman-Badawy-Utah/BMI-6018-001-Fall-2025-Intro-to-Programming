@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov 22 14:52:57 2025
-
-@author: El-Wattaneya
-"""
-
 # -*- coding: utf-8 -*- 
 """
 Created on Sat Nov 22 14:32:13 2025
@@ -286,3 +279,4 @@ plt.tight_layout()
 
 #showing plot
 plt.show()
+
