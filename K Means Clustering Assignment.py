@@ -36,13 +36,13 @@ X.isnull().sum()
 
 
 # ---------------------------------------------------------------------
-# 2. Standardize Features using StandardScaler method (required for K-means)
+# 2. Standardizing Features using the StandardScaler method (required for K-means)
 # ---------------------------------------------------------------------
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 # ---------------------------------------------------------------------
-# 3. Compute Sum of Squared Error SSE for k = 1 to 10  (Elbow Method)
+# 3. Computing the Sum of Squared Error SSE for k = 1 to 10  (Elbow Method)
 # ---------------------------------------------------------------------
 sse = []
 k_values = range(1, 11)
@@ -68,7 +68,7 @@ plt.savefig("elbow_curve.png")
 plt.show()
 
 # ---------------------------------------------------------------------
-# 5. Automatically Detecting the "Elbow" rather than visually using kneelocator
+# 5. Automatically detecting the "Elbow" rather than visually using kneelocator
 # ---------------------------------------------------------------------
 knee = KneeLocator(k_values, sse, curve='convex', direction='decreasing')
 optimal_k = knee.elbow if knee.elbow is not None else 3  # fallback = 3
@@ -118,4 +118,5 @@ plt.legend()
 plt.grid(True)
 plt.savefig("cluster_visualization.png")
 plt.show()
+
 
