@@ -6,6 +6,7 @@ Created on Wed Nov 26 14:40:21 2025
 """
 
 # ---------------------------------------------------------------------
+# I used the Diabetes dataset and I only included the numerical columns as it's compatible with K-means clustering
 # 1. Importing needed libraries and Loading Dataset
 # ---------------------------------------------------------------------
 pip install kneed
@@ -118,5 +119,6 @@ plt.legend()
 plt.grid(True)
 plt.savefig("cluster_visualization.png")
 plt.show()
+
 
 
