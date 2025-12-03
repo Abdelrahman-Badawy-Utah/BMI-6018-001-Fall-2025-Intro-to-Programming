@@ -42,7 +42,7 @@ Created on Wed Dec  3 14:40:20 2025
 
 
 # ============================================================
-# STEP 1: Installing Libraries 
+# STEP 1: Installing the Library
 # ============================================================
 pip install pycaret 
 
@@ -155,4 +155,5 @@ plot_model(best_model, plot='pr')
 
 # 5. Classification Report Visualization
 plot_model(best_model, plot='class_report')
+
 
