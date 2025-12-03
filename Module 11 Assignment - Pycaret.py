@@ -108,7 +108,7 @@ predictions = predict_model(best_model)
 print(predictions.head())
 
 # ============================================================
-# STEP 10: Predicting Breast Cancer Recurrence for a NEW Patient
+# STEP 10: Predicting Breast Cancer Recurrence for a New Patient
 # ============================================================
 
 # Create a new patient with the same feature names
@@ -155,5 +155,6 @@ plot_model(best_model, plot='pr')
 
 # 5. Classification Report Visualization
 plot_model(best_model, plot='class_report')
+
 
 
