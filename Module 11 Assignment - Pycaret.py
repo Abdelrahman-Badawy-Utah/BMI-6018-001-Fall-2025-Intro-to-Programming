@@ -42,20 +42,18 @@ Created on Wed Dec  3 14:40:20 2025
 
 
 # ============================================================
-# STEP 1: Install Libraries (Run Once)
+# STEP 1: Installing Libraries 
 # ============================================================
 pip install pycaret 
 
-
 # ============================================================
-# STEP 2: Import Required Libraries
+# STEP 2: Importing Required Libraries
 # ============================================================
 import pandas as pd
 from pycaret.classification import setup, compare_models, evaluate_model, predict_model
 
-
 # ============================================================
-# STEP 3: Assign Column Names Based on Dataset Description
+# STEP 3: Assigning Column Names Based on Dataset Description
 # ============================================================
 column_names = [
     "Class",          # Target
@@ -69,23 +67,19 @@ column_names = [
     "breast-quad",
     "irradiat"
 ]
-
-
 # ============================================================
-# STEP 4: Load Your Uploaded Dataset Using Pandas
+# STEP 4: Loading the Dataset Using Pandas
 # ============================================================
 df = pd.read_csv(r"C:\Users\El-Wattaneya\Desktop\New folder (2)\breast-cancer.data", header=None, names=column_names)
 
-
 # ============================================================
-# STEP 5: Display Dataset Information
+# STEP 5: Displaying Dataset Information
 # ============================================================
 print(df.head())
 print(df.info())
 
-
 # ============================================================
-# STEP 6: Initialize PyCaret Setup
+# STEP 6: Initializing PyCaret Setup
 # ============================================================
 clf = setup(
     data=df,
@@ -93,16 +87,13 @@ clf = setup(
     session_id=42,
     verbose=False
 )
-
-
 # ============================================================
 # STEP 7: Automatically Train & Compare ML Models
 # ============================================================
 best_model = compare_models()
 
-
 # ============================================================
-# STEP 8: Evaluate the Best Model
+# STEP 8: Evaluating the Best Model
 # ============================================================
 evaluate_model(best_model)
 
@@ -111,16 +102,16 @@ model_name = type(best_model).__name__
 print("Best Machine Learning Model Used:", model_name)
 
 # ============================================================
-# STEP 9: Generate Predictions
+# STEP 9: Generating Predictions
 # ============================================================
 predictions = predict_model(best_model)
 print(predictions.head())
 
 # ============================================================
-# STEP 10: Predict Breast Cancer Recurrence for a NEW Patient
+# STEP 10: Predicting Breast Cancer Recurrence for a NEW Patient
 # ============================================================
 
-# Create a new patient with the SAME feature names
+# Create a new patient with the same feature names
 new_patient = pd.DataFrame({
     "age": ["50-59"],
     "menopause": ["ge40"],
@@ -141,9 +132,9 @@ print(new_prediction)
 
 # ============================================================
 # STEP 11: Model Visualizations
-# These plots help us understand how well the model performs
+# to understand how well the model performs
 # ============================================================
-
+# Importing the plot model
 from pycaret.classification import plot_model
 
 # 1. Confusion Matrix
@@ -164,3 +155,4 @@ plot_model(best_model, plot='pr')
 
 # 5. Classification Report Visualization
 plot_model(best_model, plot='class_report')
+
